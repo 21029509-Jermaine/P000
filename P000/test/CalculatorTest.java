@@ -25,16 +25,65 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public final void testAdd() {
-		//fail("Not yet implemented");
+	public final void testAdd() {//normal
 		int a = 1234;
 		int b = 8765;
+		String message = "";
+		
+		Calculator cal = new Calculator();
+		int actual = cal.add(a,b,message);
+		if(message == "Success") {
+			assertEquals(9999,actual);
+		}
+	}
+	
+	@Test
+	public final void errortestcase() {//error
+		int a = 1000;
+		int b = 6;
+		String message = "";
+		
+		Calculator cal = new Calculator();
+		int actual = cal.add(a,b,message);
+		if(message == "Error") {
+			assertEquals("Error",actual);
+		}
+	}
+	
+	@Test
+	public final void boundaryAdd() {//boundary
+		int a = 0;
+		int b = 0;
+		String message = "";
+		
+		Calculator cal = new Calculator();
+		int actual = cal.add(a,b,message);
+		if(message == "Success") {
+			assertEquals(0,actual);
+		}
+	}
+
+	
+	/*@Test
+	public final void normaltestnegativeAdd() {//boundary negative
+		int a = -10;
+		int b = -20;
 		
 		Calculator cal = new Calculator();
 		int actual = cal.add(a,b);
 		
-		int expected = 9999;
-		assertEquals(actual,expected);
+		assertEquals(-22,actual);
+	}
+	
+	@Test
+	public final void errortestcase() {//error
+		int a = 1000;
+		int b = -12;
+		
+		Calculator cal = new Calculator();
+		int actual = cal.add(a,b);
+		
+		assertEquals(-22,actual);
 	}
 
 	@Test
@@ -72,4 +121,5 @@ public class CalculatorTest {
 		int expected = 5;
 		assertEquals(actual, expected);
 	}
-}
+	*/
+	}
